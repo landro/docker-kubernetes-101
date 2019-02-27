@@ -1,3 +1,5 @@
+autoscale: true
+theme: Plain Jane, 1
 # Docker and Kubernetes 101
 
 ---
@@ -73,7 +75,7 @@ Several tools exist for packaging java app as docker image
 
 # Dockerhub
 
-- Image registry compararble to Maven central 
+- Image registry comparable to Maven central 
 - Other registries exist, also private ones
 
 ---
@@ -135,15 +137,24 @@ Several tools exist for packaging java app as docker image
 
 Compose is a tool for defining and running multi-container Docker applications.
 
+```
+docker-compose -f docker-compose.yml up 
+```
+
 - Great for running apps locally
 - Can be used with Docker swarm (Kubernetes alternative)
+
 
 ---
 
 # Exercise 4
 
-- Run PostgreSQL database and admin interface using _docker-compose_ 
-- [https://hub.docker.com/_/postgres](https://hub.docker.com/_/postgres)
+- Run PostgreSQL database and admin interface using _docker-compose_
+    ```
+    docker-compose up 
+    ```
+- See `docker-compose.yml` (copied from [https://hub.docker.com/_/postgres](https://hub.docker.com/_/postgres))
+- Access Admin-UI
 
 ---
 
@@ -167,17 +178,37 @@ A standard way to deploy, run and scale containers
 
 # Key concepts (objects)
 
-- Pods
+- Node
+  - ~vm
+- Pod
+  - ~container (typically Docker-container)
 - Service
+  - exposes a set of pods
+  - used to communicate with pods
+
+---
+
+# Key concepts (objects) cont.
+
 - Deployment
+  - pod * <number of replicas>
+  - update-strategies for changes to deployment (blue/green, etc)
 - Secret/ConfigMap
+  - inject in different ways into pod
 - Ingress
+  - route external traffic to services
+  - bindings to cloud specific LBs
 
 ---
 
 # Kubernetes API
 
 Kubernetes provides a REST api to which you can upload objects using yaml syntax
+
+- Objects describe desired state
+  - the scheduler makes necessary changes to get there (within current constraints)
+
+- Interactions typically via `kubectl` cli
 
 - [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#creating-a-deployment) 
 

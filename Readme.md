@@ -47,6 +47,9 @@
 - Often based on another image
 - Dockerfile used to create image (buildscript)
 - Each instruction in a Dockerfile is a layer
+- Tips
+  - Check Dockerfile-syntax/best-practices with [hadolint](https://github.com/hadolint/hadolint) 
+  - Visualize layers using [dive](https://github.com/wagoodman/dive)
 
 ---
 

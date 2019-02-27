@@ -2,11 +2,27 @@
 
 ---
 
-# Virtual machines
+# The problem
+
+- Isolation between workloads
+- Efficient resource utilisation
 
 ---
 
-# Linux OS and kernel
+# The solution
+
+- Virtual machines
+- Docker containers
+- Serverless functions
+
+---
+
+
+# Docker containers, Linux and the kernel
+
+- Rely on features found in Linux kernel since 2008
+- Virtual machines run on top of a host and a hypervisor (Xen, HyperV, KVM)
+- Docker containers run on top of a linux server, and all share same kernel
 
 ---
 
@@ -22,7 +38,7 @@
 # Namespaces
 
 - PID
-- NIC (network interface )
+- NIC (network interface)
 - UID/GID
 - Mounts
 - UTS (hostname)
